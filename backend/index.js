@@ -30,7 +30,7 @@ app.get("/", function (req, res) {
 
 //Endpoint /oi -> Olá mundo
 app.get("/oi", function (req, res) {
-  res.send("Olá, mundo!");
+  res.send("Olá,  mundo!");
 });
 
 // Lista de informações
