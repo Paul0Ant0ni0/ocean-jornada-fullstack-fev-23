@@ -1,13 +1,14 @@
+require('dotenv').config()
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 
 // localhost ou 127.0.0.1
 //const DB_URL = "mongodb://127.0.0.1:27017";
-const DB_URL = "mongodb+srv://admin:hIb8KzKiB92JIjzh@cluster0.rcqoi00.mongodb.net"; // Conectando com db na nuvem 
-const DB_NAME = "ocean-bancodados-09-02-2023";
+const DB_URL = process.env.DB_URL; // Conectando com db na nuvem 
+const DB_NAME = process.env.DB_NAME;
 
 async function main() {
-
+console.log(DB_URL, DB_NAME)
 // Conexão com o banco de dados
 console.log("Conectando com o banco de dados...");
 const client = await MongoClient.connect(DB_URL); // Convertendo um promise em um tipo especifico com o await
@@ -94,6 +95,12 @@ app.put("/item/:id", async function (req, res) {
 
   res.send(body);
 });
+
+  // Endpoint Delete -> [DELETE] /item/:id
+  // Exercício:
+  // - pesquisar sobre a operação de remover itens
+  // - implementar o endpoint de delete
+  // - realizar a operação de excluir item
 
 // Endpoint Delete -> [DELETE] /item/:id
 app.delete("/item/:id", async function (req, res) {
