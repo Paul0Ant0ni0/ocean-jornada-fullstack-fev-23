@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require("express");
+const cors = require('cors')
 const { MongoClient, ObjectId } = require("mongodb");
 
 // localhost ou 127.0.0.1
@@ -8,7 +9,7 @@ const DB_URL = process.env.DB_URL; // Conectando com db na nuvem
 const DB_NAME = process.env.DB_NAME;
 
 async function main() {
-console.log(DB_URL, DB_NAME)
+
 // Conexão com o banco de dados
 console.log("Conectando com o banco de dados...");
 const client = await MongoClient.connect(DB_URL); // Convertendo um promise em um tipo especifico com o await
@@ -19,9 +20,12 @@ console.log("Banco de dados conectado com sucesso!");
 
 const app = express();
 
+// habiltando o cors, por padrão habilita para todos o endpoits
+app.use(cors());
 
 // O que vier no body da requisição, está em Json
 app.use(express.json())
+
 
 //Endpoint / -> Hello world
 app.get("/", function (req, res) {

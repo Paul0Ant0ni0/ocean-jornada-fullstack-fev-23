@@ -1,0 +1,33 @@
+.Header{
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+}
+
+
+.Header__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.Header__links a {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-weight: bold;
+}
+
+.Header__links a:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.Header__links a:active {
+    transform: scale(0.8);
+}
