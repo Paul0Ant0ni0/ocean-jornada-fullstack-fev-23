@@ -113,8 +113,11 @@ app.delete("/item/:id", async function (req, res) {
   res.send("Item deletado com sucesso!!");
 });
 
-//Escutabndo toda a aplicação na porta 
-app.listen(3000); 
+//Executando toda a aplicação na porta 
+const port = process.env.PORT || 3000;
+  app.listen(port, function () {
+    console.log("Servidor rodando na porta: " + port);
+  });
 
 }
 
